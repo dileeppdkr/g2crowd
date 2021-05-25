@@ -1,0 +1,62 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+.name{
+  font-size: 25px;
+}
+.img-container{
+  width: 300px;
+  height: auto;
+  min-height: 300px;
+}
+.img-container img{
+  width: 100%;
+}
+.like-button{
+  width: 45px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  display: flex;
+  color: #2c98bb;
+  padding-left: 5px;
+  
+}
+.like {
+  display: flex;
+}
+.like span{
+  font-size: 17px;
+}
+.bio p{
+  font-size: 16px !important;
+  line-height: 26px;
+  text-align: justify;
+}
+.like-image{
+  width: 20px;
+}
+.jumbotron{
+  width: 80%;
+  background-color: #FFF !important;
+  text-align: left;
+}
+.content-container{
+  display: flex;
+  border-bottom: 1px solid #b7b7b7;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+}
+.main-title{
+  text-align: left;
+  font-size: 40px;
+  color: #e86138;
+  border-bottom: 1px solid #b7b7b7;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+}

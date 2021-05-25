@@ -1,0 +1,68 @@
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    </head>
+    
+    <body>
+    
+    <div class="container-fluid text-center">
+        <div class='main-title'>G2 Crowd Team Roster</div>
+        {{#each g2crowds }}
+            <div class="content-container">
+                <div class="img-container"> 
+                    {{#if this.image_url}}
+                        <img src={{this.image_url}} >
+                    {{else}}
+                        <img src="/images/profile-icon.png" >
+                    {{/if}}
+                    
+                </div>
+                <div class="jumbotron">
+                    {{g2crowd}}
+                    <div class='name'>
+                        {{this.name}}
+                    </div>
+        
+                    <div class='title'>
+                        <p>{{ this.title }}</p>
+                    </div>
+                    <div class='bio'>
+                        <p>{{ this.bio }}</p>
+                    </div>
+                    <div class='like'>
+                        <span>Want to work with {{this.name}}?</span>
+                        <button onclick="actOnLike('{{this.name}}');"
+                                data-post-name="{{ this.name }}" class='like-button'>
+                            <img src="/images/thumbs-up.svg" class='like-image'>
+                            Yes!
+                        </button>
+                    </div>
+                    <div>
+                        <span id="likes-count-{{replaceString this.name '-' }}">
+                            {{#if this.likes_count}}
+                                {{this.likes_count}}
+                            {{else}}
+                                0
+                            {{/if}}
+                        </span> people have said Yes!
+                    </div>
+                </div>
+            </div>
+            
+        {{/each}}
+    
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        function updateLikeStats(name){
+            name = name.replace(' ', '-');
+            document.querySelector('#likes-count-' + name).textContent++;
+        }
+        var actOnLike = function (name) {
+            updateLikeStats(name);
+            axios.post('/likes/act', { action: 'Like', name: name });
+        };
+    </script>
+
+    </body>
+    </html>
