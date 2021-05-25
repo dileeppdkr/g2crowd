@@ -10,5 +10,5 @@ To install
 
 4. To run in the environment
     npm start
-6. Databse
+6. Database
     MongoDB
